@@ -1,0 +1,2 @@
+import 'package:flutter/material.dart';import 'features/auth/login_page.dart';
+class SensusApp extends StatelessWidget{const SensusApp({super.key});@override Widget build(BuildContext context){return MaterialApp(debugShowCheckedModeBanner:false,title:'Sensus Janjang',theme:ThemeData(colorScheme:ColorScheme.fromSeed(seedColor:const Color(0xFF166534)),useMaterial3:true),home:const LoginPage());}}

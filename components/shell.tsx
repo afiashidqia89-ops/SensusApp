@@ -1,0 +1,1 @@
+import {Sidebar} from "./sidebar";export function Shell({title,children}:{title:string,children:React.ReactNode}){return <div className="shell"><Sidebar/><main><header className="top"><div><h1>{title}</h1><div className="muted">Estate KB-1 • Kebun Teluk Kapuas • Afdeling I</div></div><div>Administrator</div></header>{children}</main></div>}

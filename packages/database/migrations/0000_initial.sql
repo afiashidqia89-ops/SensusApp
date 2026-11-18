@@ -1,0 +1,10 @@
+CREATE TYPE role AS ENUM ('ADMIN','PEMERIKSA','VERIFIKATOR','MANAJEMEN');
+CREATE TYPE inspection_status AS ENUM ('DRAFT','SELESAI','TERKIRIM','MENUNGGU_VERIFIKASI','DISETUJUI','DITOLAK','PERIKSA_ULANG');
+CREATE TABLE estates(id uuid PRIMARY KEY DEFAULT gen_random_uuid(),code varchar(30) UNIQUE NOT NULL,name varchar(120) NOT NULL);
+CREATE TABLE gardens(id uuid PRIMARY KEY DEFAULT gen_random_uuid(),estate_id uuid NOT NULL REFERENCES estates(id),code varchar(30) NOT NULL,name varchar(120) NOT NULL);
+CREATE TABLE divisions(id uuid PRIMARY KEY DEFAULT gen_random_uuid(),garden_id uuid NOT NULL REFERENCES gardens(id),code varchar(30) NOT NULL,name varchar(120) NOT NULL);
+CREATE TABLE blocks(id uuid PRIMARY KEY DEFAULT gen_random_uuid(),division_id uuid NOT NULL REFERENCES divisions(id),code varchar(30) NOT NULL,area_ha numeric(10,2) NOT NULL,tree_count integer NOT NULL,boundary_geojson jsonb);
+CREATE TABLE users(id uuid PRIMARY KEY DEFAULT gen_random_uuid(),username varchar(80) UNIQUE NOT NULL,password_hash text NOT NULL,name varchar(150) NOT NULL,role role NOT NULL,division_id uuid REFERENCES divisions(id),active boolean DEFAULT true,created_at timestamptz DEFAULT now());
+CREATE TABLE inspections(id uuid PRIMARY KEY,client_id uuid NOT NULL,user_id uuid NOT NULL REFERENCES users(id),block_id uuid NOT NULL REFERENCES blocks(id),period smallint NOT NULL CHECK(period IN(1,2)),row_number varchar(50) NOT NULL,bunch_count integer CHECK(bunch_count>=0),tree_checked integer CHECK(tree_checked>=0),selfie_url text,selfie_sha256 text,track_geojson jsonb,status inspection_status DEFAULT 'DRAFT',started_at timestamptz,finished_at timestamptz,server_updated_at timestamptz DEFAULT now(),created_at timestamptz DEFAULT now());
+CREATE UNIQUE INDEX inspections_no_duplicate ON inspections(block_id,period,row_number);
+CREATE UNIQUE INDEX inspections_client_id ON inspections(client_id);

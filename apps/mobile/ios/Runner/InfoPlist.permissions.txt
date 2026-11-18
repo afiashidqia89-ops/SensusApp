@@ -1,0 +1,4 @@
+Tambahkan ke ios/Runner/Info.plist saat folder iOS dibuat oleh `flutter create .`:
+<key>NSCameraUsageDescription</key><string>Selfie bukti pemeriksaan sensus.</string>
+<key>NSLocationWhenInUseUsageDescription</key><string>Merekam posisi dan track sensus.</string>
+<key>NSLocationAlwaysAndWhenInUseUsageDescription</key><string>Merekam track saat pemeriksaan aktif di latar belakang.</string>

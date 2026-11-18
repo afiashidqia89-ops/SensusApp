@@ -1,0 +1,1 @@
+import {Shell} from "@/components/shell";export default function Page(){return <Shell title="Peta"><section className="card" style={{minHeight:480,background:"linear-gradient(30deg,#dbe9d5,#edf5ea)"}}><h2>Peta Track Sensus</h2><p className="muted">Integrasikan MapLibre GL JS dan GeoJSON blok/track pada tahap berikutnya.</p></section></Shell>}

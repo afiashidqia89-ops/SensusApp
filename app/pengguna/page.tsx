@@ -1,0 +1,1 @@
+import {Shell} from "@/components/shell";export default function Page(){return <Shell title="Pengguna"><section className="card"><div className="toolbar"><h2>Manajemen Pengguna</h2><button className="btn">Tambah Pengguna</button></div><p className="muted">Kelola Administrator, Pemeriksa, Verifikator, dan Manajemen.</p></section></Shell>}

@@ -1,0 +1,1 @@
+import {Shell} from "@/components/shell";export default function Page(){return <Shell title="Laporan"><section className="card"><div className="toolbar"><div><h2>Rekap Sensus</h2><p className="muted">Filter periode, estate, kebun, afdeling, blok, pemeriksa, dan status.</p></div><button className="btn">Ekspor Excel/PDF</button></div></section></Shell>}

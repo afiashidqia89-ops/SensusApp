@@ -1,0 +1,1 @@
+import {Shell} from "@/components/shell";export default function Page(){return <Shell title="Data Master"><section className="cards">{["Estate","Kebun","Afdeling","Blok"].map((x,i)=><div className="card" key={x}><div className="muted">{x}</div><div className="value">{[1,3,8,240][i]}</div></div>)}</section></Shell>}

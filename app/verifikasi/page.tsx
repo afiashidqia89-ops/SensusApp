@@ -1,0 +1,1 @@
+import {Shell} from "@/components/shell";export default function Page(){return <Shell title="Verifikasi"><section className="card"><h2>Antrean Verifikasi</h2><p className="muted">Periksa hasil, selfie, track GPS, selisih janjang, lalu setujui atau kembalikan.</p></section></Shell>}

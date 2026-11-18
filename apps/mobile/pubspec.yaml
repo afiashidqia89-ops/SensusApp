@@ -1,0 +1,26 @@
+name: sensus_janjang
+description: Aplikasi native sensus janjang kelapa sawit
+publish_to: none
+version: 0.1.0+1
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  dio: ^5.7.0
+  flutter_riverpod: ^2.6.1
+  go_router: ^14.6.2
+  sqflite: ^2.4.1
+  path: ^1.9.1
+  shared_preferences: ^2.3.3
+  camera: ^0.11.0+2
+  geolocator: ^13.0.2
+  connectivity_plus: ^6.1.1
+  uuid: ^4.5.1
+  json_annotation: ^4.9.0
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+flutter:
+  uses-material-design: true

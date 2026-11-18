@@ -1,0 +1,1 @@
+import {sql} from "@/lib/db";import {ok,fail} from "@/lib/api";export const runtime="nodejs";export async function GET(){try{const r=await sql`select now() as database_time`;return ok({database:"connected",time:r[0].database_time})}catch{return fail("Database tidak terhubung",503)}}
