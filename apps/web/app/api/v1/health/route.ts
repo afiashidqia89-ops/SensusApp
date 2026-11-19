@@ -1,1 +1,0 @@
-import {NextResponse} from "next/server";import {sql} from "@/lib/db";export const runtime="nodejs";export async function GET(){try{const r=await sql`select now() as time`;return NextResponse.json({ok:true,database:"connected",time:r[0].time});}catch{return NextResponse.json({ok:false,database:"disconnected"},{status:503})}}
